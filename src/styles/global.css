@@ -1,0 +1,119 @@
+:root {
+    color-scheme: light;
+    /* Modo Claro */
+    --color-primary: #386641;
+    --color-secondary: #6A994E;
+    --color-accent: #A7C957;
+    --color-accent-soft: #CDE19C;
+    --color-background: #F2E8CC;
+    --color-error: #BC4749;
+    --color-surface: #DCE7D9;
+
+    /* Fonts */
+    --font-logo: "Lemon", sans-serif;
+    --font-heading: "Poetsen One", sans-serif;
+    --font-body: "Poppins", sans-serif;
+
+    /* Otros */
+    --color-text: #222C24;
+    --color-border: #6A994E;
+    --color-white: #FFFFFF;
+
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-background);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+[data-theme="dark"] {
+    color-scheme: dark;
+    --color-primary: #386641;
+    --color-secondary: #DCE7D9;
+    --color-accent: #A7C957;
+    --color-accent-soft: #DCE7D9;
+
+    --color-background: #171D19;
+    --color-surface: #222C24;
+    --color-card: #354338;
+
+    --color-text: #DCE7D9;
+    --color-text-muted: #DCE7D9;
+    --color-border: #354338;
+    --color-error: #E07878;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    font-family: var(--font-body);
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+.logo {
+    font-family: var(--font-logo);
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+a {
+    color: var(--color-primary);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--color-error);
+    outline-offset: 3px;
+}
+
+
+.container {
+    width: min(1100px, 90%);
+    margin-inline: auto;
+}
+
+.button-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.button-primary:hover {
+    background-color: var(--color-secondary);
+}
+
+.error-message {
+    color: var(--color-error);
+}
