@@ -1,26 +1,22 @@
-/* import { BrowserRouter, Routes, Route } from 'react-router-dom'; */
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/global.css';
+import Home from './pages/Home';
+import Register from './pages/Register';
+import LogIn from './pages/LogIn';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <>
-      <main className='container'>
-        <h1 className='logo'>Knowya</h1>
-        <p> Conoce gente nueva</p>
-        <button
-          className="button-primary"
-        >
-          Descubrir personas
-        </button>
-      </main>
-    </>
-    /* <BrowserRouter>
+    <BrowserRouter>
       <main>
         <Routes>
-          <Route path='/' element={}></Route>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/register' element={<Register />}></Route>
+          <Route path='/login' element={<LogIn />}></Route>
+          <Route path='*' element={<NotFound />}></Route>
         </Routes>
       </main>
-    </BrowserRouter> */
+    </BrowserRouter>
   );
 }
 
