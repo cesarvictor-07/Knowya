@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/auth.css";
 import FeedbackModal from "../components/FeedbackModal";
+import ThemeSwitch from "../components/ThemeSwitch";
 
 function LogIn() {
   const [formData, setFormData] = useState({
@@ -11,7 +12,7 @@ function LogIn() {
 
   const [errors, setErrors] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -51,6 +52,7 @@ function LogIn() {
   return (
     <main className="auth-page">
       <section className="auth-container">
+        <ThemeSwitch />
 
         <header className="auth-header">
           <p className="auth-welcome">Welcome</p>

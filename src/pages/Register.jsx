@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import FeedbackModal from "../components/FeedbackModal";
 import "../styles/auth.css";
+import ThemeSwitch from "../components/ThemeSwitch";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -70,6 +71,7 @@ function Register() {
   return (
     <main className="auth-page">
       <section className="auth-container">
+        <ThemeSwitch />
 
         <header className="auth-header">
           <p className="auth-welcome">Welcome</p>

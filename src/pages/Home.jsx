@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import "../styles/home.css";
+import ThemeSwitch from "../components/ThemeSwitch";
 
 function Home() {
   return (
     <main className="home">
+
       <section className="home-content">
+        <ThemeSwitch />
         <h1 className="home-logo">Knowya</h1>
 
         <p className="home-eyebrow">

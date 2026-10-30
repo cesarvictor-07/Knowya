@@ -30,7 +30,7 @@
 [data-theme="dark"] {
     color-scheme: dark;
     --color-primary: #386641;
-    --color-secondary: #DCE7D9;
+    --color-secondary: #6A994E;
     --color-accent: #A7C957;
     --color-accent-soft: #DCE7D9;
 
@@ -39,7 +39,7 @@
     --color-surface: #354338;
 
     --color-text: #DCE7D9;
-    --color-text-muted: #DCE7D9;
+    --color-text-muted: #B2BEB3;
     --color-border: #354338;
     --color-error: #E07878;
 }
