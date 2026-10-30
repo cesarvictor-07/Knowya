@@ -12,8 +12,6 @@
   text-align: center;
 }
 
-/* Logotipo: Lemon exclusivamente para Knowya */
-
 .home-logo {
   margin: 0 0 1.5rem;
   font-family: var(--font-logo);
@@ -22,8 +20,6 @@
   line-height: 1.2;
   color: var(--color-primary);
 }
-
-/* Presentación */
 
 .home-eyebrow {
   margin: 0 0 1rem;
@@ -48,8 +44,6 @@
   line-height: 1.8;
   color: var(--color-text);
 }
-
-/* Botones */
 
 .home-actions {
   display: flex;
@@ -103,15 +97,11 @@
   outline-offset: 4px;
 }
 
-/* Texto inferior */
-
 .home-footer {
   margin: 2.5rem 0 0;
   font-size: 0.85rem;
   color: var(--color-text-muted);
 }
-
-/* Adaptación a pantallas pequeñas */
 
 @media (max-width: 480px) {
   .home {
@@ -130,17 +120,5 @@
 
   .home-description {
     font-size: 0.95rem;
-  }
-}
-
-/* Respeta las preferencias de movimiento del usuario */
-
-@media (prefers-reduced-motion: reduce) {
-  .home-button {
-    transition: none;
-  }
-
-  .home-button:hover {
-    transform: none;
   }
 }
