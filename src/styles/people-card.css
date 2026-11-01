@@ -1,0 +1,79 @@
+.people-card {
+  width: 100%;
+  min-height: 390px;
+  padding: 15px;
+  background: var(--color-card);
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.people-card-photo {
+  width: 100%;
+  aspect-ratio: 1 / 0.78;
+  overflow: hidden;
+  background: var(--color-accent-soft);
+}
+
+.people-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.people-card-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: var(--color-accent);
+}
+
+.people-card-placeholder svg {
+  width: 38px;
+  height: 38px;
+  color: var(--color-secondary);
+  stroke-width: 2.5;
+}
+
+.people-card-placeholder span {
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+.people-card-information h2 {
+  margin: 0 0 5px;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+}
+
+.people-card-description {
+  margin: 0;
+  color: var(--color-secondary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+
+.people-card-hobbies {
+  margin-top: 5px;
+}
+
+.people-card-hobbies h3 {
+  margin: 0;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+}
+
+.people-card-hobbies p {
+  margin: 4px 0 0;
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+}

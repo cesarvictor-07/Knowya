@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/auth.css";
 import FeedbackModal from "../components/FeedbackModal";
 import ThemeSwitch from "../components/ThemeSwitch";
 
 function LogIn() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -46,15 +48,16 @@ function LogIn() {
 
     if (Object.keys(newErrors).length === 0) {
       setModalOpen(true);
+
     }
   };
 
   return (
     <main className="auth-page">
       <section className="auth-container">
-        <ThemeSwitch />
 
         <header className="auth-header">
+          <ThemeSwitch />
           <p className="auth-welcome">Welcome</p>
           <p className="auth-to">to</p>
 
@@ -128,7 +131,10 @@ function LogIn() {
         title="Todo correcto!"
         message="Las credenciales son correctas, has iniciado sesión correctamente"
         buttonText="Entendido"
-        onClose={() => setModalOpen(false)}
+        onClose={() => {
+          setModalOpen(false);
+          navigate("/people");
+        }}
       />
     </main>
   );

@@ -1,11 +1,13 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FeedbackModal from "../components/FeedbackModal";
 import "../styles/auth.css";
 import ThemeSwitch from "../components/ThemeSwitch";
 
 function Register() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -71,9 +73,9 @@ function Register() {
   return (
     <main className="auth-page">
       <section className="auth-container">
-        <ThemeSwitch />
 
         <header className="auth-header">
+          <ThemeSwitch />
           <p className="auth-welcome">Welcome</p>
           <p className="auth-to">to</p>
 
@@ -221,7 +223,10 @@ function Register() {
         title="Registro correcto!"
         message="Todos los datos son válidos, tu cuenta se ha creado, bienvenido!"
         buttonText="Entendido"
-        onClose={() => setModalOpen(false)}
+        onClose={() => {
+          setModalOpen(false);
+          navigate("/people");
+        }}
       />
 
     </main>
