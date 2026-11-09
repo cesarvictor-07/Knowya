@@ -1,5 +1,6 @@
 import { MessageSquare, UserRound, Settings } from "lucide-react";
 import "../styles/header.css";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -9,9 +10,9 @@ function Header() {
           <MessageSquare aria-hidden="true" />
         </span>
 
-        <span className="header-icon" aria-label="Perfil" title="Perfil">
+        <Link to="/profile" className="header-icon" aria-label="Perfil" title="Perfil">
           <UserRound aria-hidden="true" />
-        </span>
+        </Link>
 
         <span
           className="header-icon"

@@ -1,0 +1,81 @@
+.profile-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background: var(--color-background);
+}
+
+.profile-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.profile-logo {
+    margin: 2rem 0;
+    text-align: center;
+    font-family: var(--font-logo);
+    font-size: 3rem;
+    color: var(--color-primary);
+}
+
+.profile-content {
+    padding: 1.5rem;
+    border-radius: 10px;
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+
+.profile-content h2 {
+    margin: 0 0 1.5rem;
+    text-align: center;
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+}
+
+.profile-data {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.profile-field span {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+.profile-field p {
+    margin: 0.35rem 0 0;
+    overflow-wrap: anywhere;
+    font-size: 0.95rem;
+}
+
+.profile-logout {
+    width: 100%;
+    min-height: 42px;
+    margin-top: 2rem;
+    border: none;
+    border-radius: 5px;
+    background: var(--color-primary);
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.profile-logout:hover {
+    background: var(--color-secondary);
+}
+
+.profile-logout:focus-visible {
+    outline: 3px solid var(--color-error);
+    outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+    .profile-content {
+        padding: 1rem;
+    }
+}

@@ -1,6 +1,5 @@
 const API_URL = import.meta.env.VITE_API_URL;
 
-// Función común para realizar peticiones HTTP
 async function realizarPeticion(endpoint, opciones = {}) {
   let respuesta;
 

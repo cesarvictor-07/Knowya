@@ -5,6 +5,9 @@ import Register from './pages/Register';
 import LogIn from './pages/LogIn';
 import NotFound from './pages/NotFound';
 import People from './pages/People';
+import Profile from './pages/Profile';
+
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
@@ -14,7 +17,8 @@ function App() {
           <Route path='/' element={<Home />}></Route>
           <Route path='/register' element={<Register />}></Route>
           <Route path='/login' element={<LogIn />}></Route>
-          <Route path='/people' element={<People />}></Route>
+          <Route path='/people' element={<ProtectedRoute><People /></ProtectedRoute>}></Route>
+          <Route path='/profile' element={<ProtectedRoute><Profile /></ProtectedRoute>}></Route>
           <Route path='*' element={<NotFound />}></Route>
         </Routes>
       </main>
