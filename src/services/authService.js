@@ -1,4 +1,3 @@
-
 const API_URL = import.meta.env.VITE_API_URL;
 
 // Función común para realizar peticiones HTTP
@@ -34,7 +33,6 @@ async function realizarPeticion(endpoint, opciones = {}) {
   return datos;
 }
 
-// Registrar un usuario
 export async function registrarUsuario(datosUsuario) {
   return realizarPeticion("/usuarios/registro", {
     method: "POST",
@@ -46,7 +44,6 @@ export async function registrarUsuario(datosUsuario) {
   });
 }
 
-// Iniciar sesión
 export async function iniciarSesion(datosLogin) {
   const respuesta = await realizarPeticion("/usuarios/login", {
     method: "POST",
@@ -56,7 +53,6 @@ export async function iniciarSesion(datosLogin) {
     }),
   });
 
-  // Guardar el token JWT y los datos del usuario
   sessionStorage.setItem("token", respuesta.token);
   sessionStorage.setItem(
     "usuario",
@@ -66,18 +62,15 @@ export async function iniciarSesion(datosLogin) {
   return respuesta;
 }
 
-// Cerrar sesión
 export function cerrarSesion() {
   sessionStorage.removeItem("token");
   sessionStorage.removeItem("usuario");
 }
 
-// Recuperar el token almacenado
 export function obtenerToken() {
   return sessionStorage.getItem("token");
 }
 
-// Recuperar los datos del usuario
 export function obtenerUsuario() {
   const usuario = sessionStorage.getItem("usuario");
 
