@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { registrarUsuario } from "../services/authService";
 import FeedbackModal from "../components/FeedbackModal";
 import "../styles/auth.css";
 import ThemeSwitch from "../components/ThemeSwitch";
@@ -18,6 +19,9 @@ function Register() {
   const [errors, setErrors] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [serverError, setServerError] = useState("");
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -30,9 +34,10 @@ function Register() {
       ...prev,
       [name]: "",
     }));
+    setServerError("");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newErrors = {};
@@ -65,8 +70,22 @@ function Register() {
 
     setErrors(newErrors);
 
-    if (Object.keys(newErrors).length === 0) {
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
+    setServerError("");
+    setIsLoading(true);
+
+    try {
+      await registrarUsuario(formData);
       setModalOpen(true);
+    } catch (error) {
+      setServerError(error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -89,7 +108,6 @@ function Register() {
           onSubmit={handleSubmit}
           noValidate
         >
-
           <div className="form-group">
             <label htmlFor="username">Nombre de usuario</label>
 
@@ -142,7 +160,6 @@ function Register() {
             )}
           </div>
 
-          {/* Contraseña */}
           <div className="form-group">
             <label htmlFor="register-password">Contraseña</label>
 
@@ -171,7 +188,6 @@ function Register() {
             )}
           </div>
 
-          {/* Confirmar contraseña */}
           <div className="form-group">
             <label htmlFor="confirmPassword">
               Confirmar contraseña
@@ -204,8 +220,14 @@ function Register() {
             )}
           </div>
 
-          <button type="submit" className="auth-button">
-            Crear cuenta
+          {serverError && (
+            <p className="form-error" role="alert">
+              {serverError}
+            </p>
+          )}
+
+          <button type="submit" className="auth-button" disabled={isLoading}>
+            {isLoading ? "Registrando..." : "Crear cuenta"}
           </button>
 
         </form>
@@ -225,7 +247,7 @@ function Register() {
         buttonText="Entendido"
         onClose={() => {
           setModalOpen(false);
-          navigate("/people");
+          navigate("/login");
         }}
       />
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { iniciarSesion } from "../services/authService";
 import "../styles/auth.css";
 import FeedbackModal from "../components/FeedbackModal";
 import ThemeSwitch from "../components/ThemeSwitch";
@@ -15,6 +16,9 @@ function LogIn() {
   const [errors, setErrors] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [serverError, setServerError] = useState("");
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -27,9 +31,10 @@ function LogIn() {
       ...prev,
       [name]: "",
     }));
+    setServerError("");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newErrors = {};
@@ -46,9 +51,21 @@ function LogIn() {
 
     setErrors(newErrors);
 
-    if (Object.keys(newErrors).length === 0) {
-      setModalOpen(true);
+    if (Object.keys(newErrors).length > 0) {
+      return;
+    }
 
+    setErrors({});
+    setServerError("");
+    setIsLoading(true);
+
+    try {
+      await iniciarSesion(formData);
+      setModalOpen(true);
+    } catch (error) {
+      setServerError(error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -114,8 +131,14 @@ function LogIn() {
             )}
           </div>
 
-          <button type="submit" className="auth-button">
-            Log In
+          {serverError && (
+            <p className="form-error" role="alert">
+              {serverError}
+            </p>
+          )}
+
+          <button type="submit" className="auth-button" disabled={isLoading}>
+            {isLoading ? "Iniciando sesión" : "Iniciar sesión"}
           </button>
         </form>
 
