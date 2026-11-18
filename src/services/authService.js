@@ -52,8 +52,8 @@ export async function iniciarSesion(datosLogin) {
     }),
   });
 
-  sessionStorage.setItem("token", respuesta.token);
-  sessionStorage.setItem(
+  localStorage.setItem("token", respuesta.token);
+  localStorage.setItem(
     "usuario",
     JSON.stringify(respuesta.usuario)
   );
@@ -62,16 +62,16 @@ export async function iniciarSesion(datosLogin) {
 }
 
 export function cerrarSesion() {
-  sessionStorage.removeItem("token");
-  sessionStorage.removeItem("usuario");
+  localStorage.removeItem("token");
+  localStorage.removeItem("usuario");
 }
 
 export function obtenerToken() {
-  return sessionStorage.getItem("token");
+  return localStorage.getItem("token");
 }
 
 export function obtenerUsuario() {
-  const usuario = sessionStorage.getItem("usuario");
+  const usuario = localStorage.getItem("usuario");
 
   return usuario ? JSON.parse(usuario) : null;
 }

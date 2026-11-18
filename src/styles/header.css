@@ -19,6 +19,13 @@
   align-items: center;
   justify-content: center;
   color: var(--color-secondary);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.header-icon:hover {
+  color: var(--color-primary);
+  transform: scale(1.05);
 }
 
 .header-icon svg {

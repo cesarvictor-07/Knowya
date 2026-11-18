@@ -4,6 +4,7 @@ import FeedbackModal from "../components/FeedbackModal";
 import Header from "../components/Header";
 import { obtenerUsuario, cerrarSesion } from "../services/authService";
 import "../styles/profile.css";
+import ThemeSwitch from "../components/ThemeSwitch";
 
 function Profile() {
     const navigate = useNavigate();
@@ -57,6 +58,8 @@ function Profile() {
                     >
                         (Temporal) Volver a people
                     </button>
+
+                    <ThemeSwitch />
 
                 </section>
                 <FeedbackModal isOpen={modalOpen}
