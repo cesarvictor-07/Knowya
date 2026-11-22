@@ -8,6 +8,8 @@ function Header() {
 
   const estaEnChats = location.pathname === "/chats";
 
+  const estaEnProfile = location.pathname === "/profile";
+
   return (
     <header className="app-header">
       <nav className="header-navigation" aria-label="Navegación principal">
@@ -31,9 +33,18 @@ function Header() {
           </Link>
         )}
 
-        <Link to="/profile" className="header-icon" aria-label="Perfil" title="Perfil">
+        {estaEnProfile ? (<Link
+          to="/people"
+          className="header-icon"
+          aria-label="Conocer personas"
+          title="Conocer personas"
+        >
+          <UsersRound aria-hidden="true" />
+        </Link>) : (<Link to="/profile" className="header-icon" aria-label="Perfil" title="Perfil">
           <UserRound aria-hidden="true" />
-        </Link>
+        </Link>)}
+
+
 
         <span
           className="header-icon"

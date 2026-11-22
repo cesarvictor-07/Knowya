@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { MessageCircle, Users, RefreshCw } from "lucide-react";
-
+import { MessageCircle, User, Users, RefreshCw } from "lucide-react";
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import { obtenerChats } from "../services/chatService";
-
 import "../styles/chats.css";
 
 function Chats() {
@@ -40,7 +38,7 @@ function Chats() {
   }
 
   const chatsFiltrados = chats.filter((chat) =>
-    normalizarTexto(chat.nombreUsuario || "").includes(
+    normalizarTexto(chat.userName || "").includes(
       normalizarTexto(busqueda.trim())
     )
   );
@@ -123,23 +121,11 @@ function Chats() {
               {chatsFiltrados.map((chat) => (
                 <article className="chat-card" key={chat.idChat}>
                   <div className="chat-avatar" aria-hidden="true">
-                    <Users size={25} />
+                    <User size={25} />
                   </div>
 
                   <div className="chat-info">
-                    <h2 className="chat-name">{chat.nombreUsuario}</h2>
-
-                    <span
-                      className={`chat-status ${chat.activo ? "chat-status-active" : "chat-status-inactive"
-                        }`}
-                    >
-                      <span className="chat-status-dot"></span>
-                      {chat.activo ? "Interés mutuo" : "Interés pendiente"}
-                    </span>
-                  </div>
-
-                  <div className="chat-card-icon" aria-hidden="true">
-                    <MessageCircle size={22} />
+                    <h2 className="chat-name">{chat.userName}</h2>
                   </div>
                 </article>
               ))}
