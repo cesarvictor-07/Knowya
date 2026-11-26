@@ -29,6 +29,7 @@ function FeedbackModal({
   const icons = {
     success: "✓",
     info: "i",
+    error: "X",
   };
 
   return (

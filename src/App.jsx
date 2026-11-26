@@ -9,11 +9,13 @@ import Profile from './pages/Profile';
 import Chats from './pages/Chats';
 
 import ProtectedRoute from './components/ProtectedRoute';
+import MatchManager from './components/matchManager';
 
 
 function App() {
   return (
     <BrowserRouter>
+      <MatchManager />
       <main>
         <Routes>
           <Route path='/' element={<Home />}></Route>
