@@ -33,28 +33,67 @@
     color: var(--color-primary);
 }
 
-.profile-data {
+.profile-data,
+.profile-form {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
 }
 
-.profile-field span {
+.profile-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.profile-field span,
+.profile-field label {
     font-size: 0.8rem;
     font-weight: 700;
     color: var(--color-secondary);
 }
 
 .profile-field p {
-    margin: 0.35rem 0 0;
+    margin: 0;
     overflow-wrap: anywhere;
     font-size: 0.95rem;
 }
 
-.profile-logout {
+.profile-field input,
+.profile-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem;
+    border: 1px solid var(--color-secondary);
+    border-radius: 5px;
+    background: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+}
+
+.profile-field textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.profile-field input:focus,
+.profile-field textarea:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.profile-field small {
+    align-self: flex-end;
+    font-size: 0.75rem;
+    color: var(--color-secondary);
+}
+
+.profile-button {
     width: 100%;
     min-height: 42px;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    padding: 0.65rem 1rem;
     border: none;
     border-radius: 5px;
     background: var(--color-primary);
@@ -65,13 +104,143 @@
     cursor: pointer;
 }
 
-.profile-logout:hover {
+.profile-button:hover:not(:disabled) {
     background: var(--color-secondary);
 }
 
-.profile-logout:focus-visible {
+.profile-button:focus-visible {
     outline: 3px solid var(--color-error);
     outline-offset: 3px;
+}
+
+.profile-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.profile-button--secondary {
+    margin-top: 0;
+    background: var(--color-secondary);
+}
+
+.profile-account-actions {
+    margin-top: 1.5rem;
+}
+
+.profile-account-actions .profile-button {
+    margin-top: 0.75rem;
+}
+
+.profile-button--danger {
+    background: var(--color-error);
+}
+
+.profile-button--danger:hover:not(:disabled) {
+    filter: brightness(0.9);
+}
+
+.profile-interactions {
+    margin-top: 1.5rem;
+    border: 1px solid var(--color-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.profile-interactions summary {
+    padding: 1rem;
+    background: var(--color-background);
+    color: var(--color-primary);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.profile-interactions summary:hover {
+    background: var(--color-secondary);
+    color: #FFFFFF;
+}
+
+.profile-interactions-message {
+    padding: 1rem;
+    margin: 0;
+    font-size: 0.85rem;
+    overflow-wrap: anywhere;
+}
+
+.profile-interactions-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-interaction {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-top: 1px solid var(--color-secondary);
+}
+
+.profile-interaction-data {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    overflow-wrap: anywhere;
+}
+
+.profile-interaction-data strong {
+    color: var(--color-primary);
+    font-size: 0.95rem;
+}
+
+.profile-interaction-data span {
+    font-size: 0.8rem;
+    color: var(--color-text);
+}
+
+.profile-interaction .profile-button {
+    margin-top: 0;
+}
+
+.profile-confirmation {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    border: 1px solid var(--color-error);
+    border-radius: 8px;
+    background: var(--color-background);
+}
+
+.profile-confirmation h3 {
+    margin: 0 0 0.75rem;
+    color: var(--color-error);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+}
+
+.profile-confirmation p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.profile-confirmation-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.profile-confirmation-actions .profile-button {
+    margin-top: 0;
+}
+
+.profile-theme-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1.5rem;
 }
 
 @media (max-width: 480px) {

@@ -75,3 +75,40 @@ export function obtenerUsuario() {
 
   return usuario ? JSON.parse(usuario) : null;
 }
+
+
+export async function actualizarUsuario(datosUsuario) {
+  const token = obtenerToken();
+
+  const usuarioActualizado = await realizarPeticion("/usuarios/actual", {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      userName: datosUsuario.userName,
+      email: datosUsuario.email,
+      descripcion: datosUsuario.descripcion,
+    }),
+  });
+
+  localStorage.setItem(
+    "usuario",
+    JSON.stringify(usuarioActualizado)
+  );
+
+  return usuarioActualizado;
+}
+
+export async function eliminarUsuario() {
+  const token = obtenerToken();
+
+  await realizarPeticion("/usuarios/actual", {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  cerrarSesion();
+}

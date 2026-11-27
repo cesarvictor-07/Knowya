@@ -1,4 +1,3 @@
-
 import { obtenerToken } from "./authService";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -110,4 +109,42 @@ export async function obtenerInteraccionesEnviadas() {
     }
 
     return interacciones;
+}
+
+
+export async function retirarInteres(idDestino) {
+    const token = obtenerToken();
+
+    let respuesta;
+
+    try {
+        respuesta = await fetch(`${API_URL}/interacciones/${idDestino}`, {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+    } catch {
+        throw new Error(
+            "No se ha podido conectar con el servidor. Comprueba tu conexión."
+        );
+    }
+
+    if (respuesta.status === 401) {
+        throw new Error(
+            "Tu sesión ha caducado o no es válida. Vuelve a iniciar sesión."
+        );
+    }
+
+    if (respuesta.status === 404) {
+        throw new Error("No se ha encontrado la interacción que quieres retirar.");
+    }
+
+    if (respuesta.status === 409) {
+        throw new Error("No se ha podido retirar esta interacción.");
+    }
+
+    if (!respuesta.ok) {
+        throw new Error("No se ha podido retirar el interés.");
+    }
 }
