@@ -119,15 +119,26 @@ function Chats() {
           ) : (
             <div className="chats-list">
               {chatsFiltrados.map((chat) => (
-                <article className="chat-card" key={chat.idChat}>
+                <Link
+                  to={`/chats/${chat.idChat}`}
+                  className="chat-card"
+                  key={chat.idChat}
+                  aria-label={`Abrir conversación con ${chat.userName}`}
+                >
                   <div className="chat-avatar" aria-hidden="true">
                     <User size={25} />
                   </div>
 
                   <div className="chat-info">
                     <h2 className="chat-name">{chat.userName}</h2>
+
+                    <p className={`chat-status ${chat.activo ? "chat-status--active" : "chat-status--inactive"}`}>
+                      {chat.activo ? "Conversación activa" : "Conversación inactiva"}
+                    </p>
                   </div>
-                </article>
+
+                  <MessageCircle size={20} aria-hidden="true" />
+                </Link>
               ))}
             </div>
           )}

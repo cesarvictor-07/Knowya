@@ -111,7 +111,7 @@
     color: var(--color-text);
 }
 
-.chats-state > svg {
+.chats-state>svg {
     color: var(--color-secondary);
 }
 
@@ -196,7 +196,7 @@
     border-color: var(--color-error);
 }
 
-.chats-error > svg {
+.chats-error>svg {
     color: var(--color-error);
 }
 
@@ -235,4 +235,40 @@
     .chats-state h2 {
         font-size: 1.05rem;
     }
+}
+
+.chat-card {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.chat-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-secondary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.chat-card:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+.chat-status {
+    margin: 5px 0 0;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+}
+
+.chat-status--active {
+    color: var(--color-secondary);
+}
+
+.chat-status--inactive {
+    opacity: 0.6;
 }
